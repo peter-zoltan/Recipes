@@ -1,7 +1,9 @@
-import {useState} from "react";
+export type MealTypeProps = {
+    type: string;
+    setType: (name: string) => void;
+}
 
-export default function MealType() {
-    const [type, setType] = useState<string>("");
+export default function MealType({type, setType}: MealTypeProps) {
     const types = ["Main course", "Side dish", "Dessert", "Appetizer", "Salad", "Bread", "Breakfast", "Soup", "Beverage", "Sauce", "Marinade", "Fingerfood", "Snack", "Drink"];
     const items = [];
     for (let i = 0; i < types.length; i++) {

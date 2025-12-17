@@ -1,9 +1,13 @@
-import {useState} from "react";
 import Container from "react-bootstrap/Container";
 
-export default function SearchBar() {
-    const [name, setName] = useState("");
-    const [ingredients, setIngredients] = useState("");
+export type SearchBarProps = {
+    name: string;
+    setName: (name: string) => void;
+    ingredients: string;
+    setIngredients: (ingredients: string) => void;
+}
+
+export default function SearchBar({name, setName, ingredients, setIngredients}: SearchBarProps) {
     return (
         <form className="d-flex justify-content-center align-items-center col-8 col-lg-6 flex-column">
             <Container className="d-flex justify-content-center align-items-center p-2">
