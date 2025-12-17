@@ -1,6 +1,6 @@
 import './App.css'
 import Search from "./search/Search.tsx";
-import RecipeListItem from "./recipe/RecipeListItem.tsx";
+import RecipeList from "./recipe/RecipeList.tsx";
 import Container from 'react-bootstrap/Container';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
       <Container className="d-flex justify-content-center align-items-center flex-column">
           <Search />
-          <RecipeListItem />
+          <RecipeList />
       </Container>
   );
 }
