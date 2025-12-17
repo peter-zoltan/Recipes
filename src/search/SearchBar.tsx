@@ -5,16 +5,17 @@ export type SearchBarProps = {
     setName: (name: string) => void;
     ingredients: string;
     setIngredients: (ingredients: string) => void;
+    onSearch: () => void;
 }
 
-export default function SearchBar({name, setName, ingredients, setIngredients}: SearchBarProps) {
+export default function SearchBar({name, setName, ingredients, setIngredients, onSearch}: SearchBarProps) {
     return (
         <form className="d-flex justify-content-center align-items-center col-8 col-lg-6 flex-column">
             <Container className="d-flex justify-content-center align-items-center p-2">
                 <input className="form-control me-2" type="search" placeholder="Name"
                        value={name} onChange={e => setName(e.currentTarget.value)}
                 />
-                <button className="btn btn-outline-success" type="button">
+                <button className="btn btn-outline-success" type="button" onClick={onSearch}>
                     Search
                 </button>
             </Container>

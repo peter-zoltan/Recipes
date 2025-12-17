@@ -1,10 +1,12 @@
-import {useState} from "react";
 import Container from "react-bootstrap/Container";
 
-export default function Intolerances() {
-    const arr = Array(12).fill(false);
-    const [intolerances, setIntolerances] = useState<boolean[]>(arr);
-    const intoleranceNames = ["dairy", "egg", "gluten", "grain", "peanut", "seafood", "sesame", "shellfish", "soy", "sulfite", "tree nut", "wheat"];
+export type IntolerancesProps = {
+    intolerances: boolean[],
+    setIntolerances: (intolerances: boolean[]) => void,
+    intoleranceNames: string[],
+}
+
+export default function Intolerances({intolerances, setIntolerances, intoleranceNames}: IntolerancesProps) {
     const checkBoxes = [];
     for (let i = 0; i < intoleranceNames.length / 4; i++) {
         const k = i * 4; // jsx wouldn't let i+=4 be used in the loop, so this is the workaround
@@ -51,7 +53,7 @@ export default function Intolerances() {
     );
 }
 
-function toggleIntolerance(intolerances: boolean[], index: number, setIntolerances: React.Dispatch<React.SetStateAction<boolean[]>>) {
+function toggleIntolerance(intolerances: boolean[], index: number, setIntolerances: (intolerances: boolean[]) => void) {
     intolerances[index] = !intolerances[index];
     setIntolerances(intolerances);
 }
