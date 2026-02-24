@@ -13,7 +13,7 @@ import Favourites, {type Favourite} from "./recipe/Favourite.tsx";
  * The components to where almost all states are lifted to, the main management point of the applicaton.
  * Stores the parameters used in the API call, sand handles the call itself.
  * Stores some particulars of the API, like possible intolerances.
- * Contains all visible React elements on the page in it's return value.
+ * Contains all visible React elements on the page in its return value.
  */
 function App() {
     const [name, setName] = useState("");

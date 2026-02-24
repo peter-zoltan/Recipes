@@ -1,5 +1,8 @@
 import Container from "react-bootstrap/Container";
 
+/**
+ * Props for the SearchBar component.
+ */
 export type SearchBarProps = {
     name: string;
     setName: (name: string) => void;
@@ -8,6 +11,14 @@ export type SearchBarProps = {
     onSearch: () => void;
 }
 
+/**
+ * Contains the searchbars and the search button.
+ * @param name Value of the natural language recipe search query.
+ * @param setName Function to set the value of the natural language recipe search query.
+ * @param ingredients The list of ingredients that should/must be used in the recipes.
+ * @param setIngredients Function to set the value of the list of ingredients that should/must be used in the recipes.
+ * @param onSearch Function that should be called when the search button is pressed, sending a network call to the API.
+ */
 export default function SearchBar({name, setName, ingredients, setIngredients, onSearch}: SearchBarProps) {
     return (
         <form className="d-flex justify-content-center align-items-center col-8 col-lg-6 flex-column">

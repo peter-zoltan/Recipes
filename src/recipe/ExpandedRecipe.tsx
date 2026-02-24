@@ -2,14 +2,19 @@ import Container from "react-bootstrap/Container";
 import type {Favourite} from "./Favourite.tsx";
 import {useState} from "react";
 
+/**
+ * Contains the expanded view of a recipe, allows for saving notes and saving the recipe as a favourite.
+ * @param recipe The recipe to be viewed.
+ * @param setSearchState Signifies whether this is the view that should be shown, is shown when it's false.
+ * @param favourites The list of recipes and their notes save as favourites.
+ * @param saveFavourites The function to save a recipe as a favourite along with it's note.
+ * @constructor
+ */
 export default function ExpandedRecipe({recipe, setSearchState, favourites, saveFavourites} :
 {recipe: object, setSearchState : (state: boolean) => void, favourites: Favourite[], saveFavourites: () => void }) {
     function getNotesByName() {
-        //favourites = JSON.parse(localStorage.getItem("Favourites") as string) || [];
-        //console.log(favourites);
         for (let i = 0; i < favourites.length; i++) {
             if (favourites[i].recipe.title == recipe.title) {
-                //console.log(favourites[i].notes)
                 return favourites[i].notes;
             }
         }

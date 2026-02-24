@@ -1,13 +1,24 @@
 import Container from "react-bootstrap/Container";
+import type {ReactElement} from "react";
 
+/**
+ * Props for the component Intolerances.
+ */
 export type IntolerancesProps = {
     intolerances: boolean[],
     setIntolerances: (intolerances: boolean[]) => void,
     intoleranceNames: string[],
 }
 
+/**
+ * Contains the checkbox buttons used to select intolerances.
+ * @param intolerances The list of intolerances. All recipes returned must not contain ingredients that are not suitable
+ * for people with the intolerances entered.
+ * @param setIntolerances Function to set the value of the list of intolerances.
+ * @param intoleranceNames The names of the intolerances that can be selected.
+ */
 export default function Intolerances({intolerances, setIntolerances, intoleranceNames}: IntolerancesProps) {
-    const checkBoxes = [];
+    const checkBoxes: ReactElement[] = [];
     for (let i = 0; i < intoleranceNames.length / 4; i++) {
         const k = i * 4; // jsx wouldn't let i+=4 be used in the loop, so this is the workaround
         checkBoxes.push(
@@ -49,10 +60,28 @@ export default function Intolerances({intolerances, setIntolerances, intolerance
                 Please choose intolerances:
             </div>
             {checkBoxes}
+            {intoleranceNames.map(student => {
+                    if (student) {
+                        return <div className="form-check form-check-inline">
+                            <input className="btn-check" type="checkbox" value="" id={intoleranceNames[k]}
+                                   onClick={() => toggleIntolerance(intolerances, k, setIntolerances)}/>
+                            <label className="btn btn-sm btn-outline-warning" htmlFor={intoleranceNames[k]}>
+                                {intoleranceNames[k]}
+                            </label>
+                        </div>;
+                    }
+                }
+            )}
         </Container>
     );
 }
 
+/**
+ * Toggles a button signifying an intolerance.
+ * @param intolerances The list of intolerances.
+ * @param index The index of the button within the array of buttons correlated to the intolerance with the same index.
+ * @param setIntolerances Function to set the value of the list of intolerances.
+ */
 function toggleIntolerance(intolerances: boolean[], index: number, setIntolerances: (intolerances: boolean[]) => void) {
     intolerances[index] = !intolerances[index];
     setIntolerances(intolerances);

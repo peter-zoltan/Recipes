@@ -1,8 +1,16 @@
+/**
+ * Props for the MealType component.
+ */
 export type MealTypeProps = {
     type: string;
     setType: (name: string) => void;
 }
 
+/**
+ * Contains the dropdown menu for selecting the type of meal. Stores the possible types.
+ * @param type The type of recipe, "main course" for example.
+ * @param setType Function to set the type of recipe.
+ */
 export default function MealType({type, setType}: MealTypeProps) {
     const types = ["Main course", "Side dish", "Dessert", "Appetizer", "Salad", "Bread", "Breakfast", "Soup", "Beverage", "Sauce", "Marinade", "Fingerfood", "Snack", "Drink"];
     const items = [];

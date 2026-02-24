@@ -1,5 +1,13 @@
 import Container from "react-bootstrap/Container";
 
+/**
+ * Contains the view of a single recipe in a list, can be clicked to go to it's expanded view.
+ * @param name Name of the recipe.
+ * @param image Image to be displayed alongside the recipe.
+ * @param recipes The list of recipes.
+ * @param onClick The function that brings up it's extended view.
+ * @constructor
+ */
 export default function RecipeListItem({name, image, recipes, onClick} :
 { name: string, image: string, recipes: object, onClick: (recipe: object) => void}) {
     function findRecipeByName(name: string) {
